@@ -1,7 +1,7 @@
 import { ApiResponse } from "@/types/dictionary";
 
 // Custom proxy URL that handles CORS
-const PROXY_URL = "https://latin-words-com-proxy.vercel.app/";
+const PROXY_URL = "https://latin-words-com-proxy.vercel.app/api";
 
 export async function lookupLatinWord(word: string): Promise<ApiResponse> {
   try {
