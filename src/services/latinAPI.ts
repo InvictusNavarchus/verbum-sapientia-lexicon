@@ -1,14 +1,19 @@
 
 import { ApiResponse } from "@/types/dictionary";
 
-const BASE_URL = "https://latin-words.com/cgi-bin/translate.cgi";
+// Original API URL
+const ORIGINAL_API_URL = "https://latin-words.com/cgi-bin/translate.cgi";
+// CORS proxy URL - using corsproxy.io as a free public CORS proxy
+const PROXY_URL = "https://corsproxy.io/?";
 
 export async function lookupLatinWord(word: string): Promise<ApiResponse> {
   try {
-    const url = `${BASE_URL}?query=${encodeURIComponent(word)}`;
+    // Create the proxied URL by encoding the original URL
+    const targetUrl = `${ORIGINAL_API_URL}?query=${encodeURIComponent(word)}`;
+    const proxiedUrl = `${PROXY_URL}${encodeURIComponent(targetUrl)}`;
     
-    // Fetch the data from the API
-    const response = await fetch(url, {
+    // Fetch the data using the proxied URL
+    const response = await fetch(proxiedUrl, {
       method: "GET",
       headers: {
         "Accept": "*/*",
