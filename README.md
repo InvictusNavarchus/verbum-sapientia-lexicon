@@ -1,7 +1,9 @@
 
 # Verbum Sapientia Lexicon
 
-A modern Latin dictionary web application that allows users to search for Latin words and view their definitions, grammatical forms, and usage notes. This project is a redesigned, modern remake of [latin-words.com](https://latin-words.com), enhancing the user experience while maintaining the same comprehensive dictionary data.
+A modern Latin dictionary web application that allows users to search for Latin words and view their definitions, grammatical forms, and usage notes.
+
+This project is a redesigned, modern remake of [latin-words.com](https://latin-words.com). Under the hood, it proxies the request to [latin-words.com](https://latin-words.com) and retrieves the response from them.
 
 ## Features
 
