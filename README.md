@@ -80,6 +80,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - [latin-words.com](https://latin-words.com) for providing the original dictionary service and API
-- This project is a modern redesign of latin-words.com, maintaining the same comprehensive Latin dictionary data while improving the user interface
-- Inspired by the Latin word lookup userscript by Invictus
+
 
