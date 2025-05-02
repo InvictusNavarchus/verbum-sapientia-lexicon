@@ -1,73 +1,80 @@
-# Welcome to your Lovable project
 
-## Project info
+# Verbum Sapientia Lexicon
 
-**URL**: https://lovable.dev/projects/7c7ec65a-e1d4-4d00-84ac-4b56452a6d7f
+A modern Latin dictionary web application that allows users to search for Latin words and view their definitions, grammatical forms, and usage notes.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Word Search**: Look up any Latin word to find its definitions and grammatical information
+- **Automatic Macron Detection**: Searches work with or without macrons on vowels (ā, ē, ī, ō, ū)
+- **Detailed Word Analysis**: View comprehensive information about each word:
+  - Dictionary entries with part of speech and principal parts
+  - Grammatical form analysis
+  - Multiple definitions with usage contexts
+  - Etymological notes where available
+- **Responsive Design**: Works seamlessly across desktop and mobile devices
 
-**Use Lovable**
+## Implementation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7c7ec65a-e1d4-4d00-84ac-4b56452a6d7f) and start prompting.
+### API Integration
 
-Changes made via Lovable will be committed automatically to this repo.
+The application uses a proxy service to communicate with the Latin Words API:
 
-**Use your preferred IDE**
+```typescript
+// API request format
+const response = await fetch(`${PROXY_URL}?query=${encodeURIComponent(word)}`);
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Response Format
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The API returns structured data that is processed into the following format:
 
-Follow these steps:
+- **Dictionary entries**: Lemma forms, part of speech, grammatical details
+- **Grammatical forms**: Analysis of the specific queried form
+- **Notes**: Additional context and information
+- **Unknown status**: Boolean indicating if the word was found in the dictionary
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Technology Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- **Frontend**: React with TypeScript
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Build System**: Vite
+- **API Handling**: Custom proxy to bypass CORS restrictions
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Local Development
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/verbum-sapientia-lexicon.git
+cd verbum-sapientia-lexicon
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Deployment
 
-**Use GitHub Codespaces**
+The application is deployed and can be accessed at:
+[https://lovable.dev/projects/7c7ec65a-e1d4-4d00-84ac-4b56452a6d7f](https://lovable.dev/projects/7c7ec65a-e1d4-4d00-84ac-4b56452a6d7f)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Contributing
 
-## What technologies are used for this project?
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This project is built with:
+## License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## How can I deploy this project?
+## Acknowledgments
 
-Simply open [Lovable](https://lovable.dev/projects/7c7ec65a-e1d4-4d00-84ac-4b56452a6d7f) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Latin-Words.com for the dictionary API service
+- Inspired by the Latin word lookup userscript by Invictus
